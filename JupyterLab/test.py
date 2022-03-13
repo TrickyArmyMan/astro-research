@@ -152,7 +152,6 @@ def getCARMAstats(file):
     ################################
 
     # Initalize MCMC
-    data = (t, y, yerr)
     nwalkers = 128
     niter = 2048
 
