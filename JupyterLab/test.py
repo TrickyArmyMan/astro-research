@@ -8,12 +8,11 @@ import eztao
 import eztao.ts
 
 import celerite
-from numba import njit
+
 import multiprocessing as mp
 import time
 
 # chi-sqared
-@njit(nogil=True)
 def chisqg(y_data, y_model, sd=None):
     chisq = numpy.nansum(((y_data-y_model)/sd)**2)
     return chisq
@@ -23,7 +22,6 @@ def chisqg(y_data, y_model, sd=None):
 ################################
 
 # prior function for tau_perturb
-@njit(nogil=True)
 def lnprior_perturb(theta):
     """Prior on perturbation timescale. Note: this is a wedge like prior."""
 
@@ -36,7 +34,7 @@ def lnprior_perturb(theta):
 
     return prior
 
-@njit(nogil=True)
+
 def lnprior_bounds(theta):
     """Prior on AR and MA parameters. This is a flat prior."""
 
